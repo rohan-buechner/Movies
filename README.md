@@ -1,12 +1,14 @@
 # Hello World Movies
 
-Tech Used:
+**Tech Used**
+
 Back:
   * .Net (Platform)
     *  WebAPI 
     *  Nunit (Test Framework)
     *  Rhino Mocks (Mocking)
     *  Ninject (IOC)
+    *  EF6 Code-First (ORM)
 
 Front:
   * AngularJS (Front-End MV*)
