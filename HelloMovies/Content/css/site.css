@@ -1,0 +1,11 @@
+﻿/*site specific css goes here*/
+
+.select-placeholder option:first-child {
+    display: none;
+}
+
+/* TODO: Update bootstrap style, instead of overriding*/
+.help-block {
+    margin-bottom: 0px;
+    margin-top: 0px;
+}

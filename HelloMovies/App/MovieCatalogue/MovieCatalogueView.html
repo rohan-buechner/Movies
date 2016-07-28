@@ -1,0 +1,91 @@
+﻿<br />
+<div>
+    <!--input new movie form-->
+    <form name="movieForm" class="well" ng-submit="submit()" novalidate>
+        <div class="form-group row" ng-class="{ 'has-error': movieForm.Title.$touched && movieForm.Title.$invalid }">
+            <label for="inputTitle" class="col-sm-2 form-control-label">Title</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="Title" placeholder="Please enter a title..." ng-model="movie.Title" ng-maxlength="50" required >     
+                <div class="help-block" ng-messages="movieForm.Title.$error" ng-if="movieForm.Title.$touched">
+                    <p ng-message="maxlength">Title is too long.</p>
+                    <p ng-message="required">Title is required.</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="form-group row" ng-class="{ 'has-error': movieForm.Released.$touched && movieForm.Released.$invalid }">
+            <label for="inputTitle" class="col-sm-2 form-control-label">Released</label>
+            <div class="col-sm-10">
+                <input type="date" class="form-control" name="Released" ng-model="movie.Released" required>
+                <div class="help-block" ng-messages="movieForm.Released.$error" ng-if="movieForm.Released.$touched">
+                    <p ng-message="required">Date Released is required.</p>
+                </div>
+            </div>
+        </div>
+
+        <fieldset class="form-group row" ng-class="{ 'has-error': movieForm.Genre.$touched && movieForm.Genre.$invalid }">
+            <label for="inputGenre" class="col-sm-2 form-control-label">Genre</label>
+            <div class="col-sm-10">
+                <select class="form-control select-placeholder" name="Genre" data-role="listview" data-inset="true" ng-model="movie.GenreTypeId" required>
+                    <option value="">Please select a movie genre...</option>
+                    <option ng-repeat="genre in genres" value="{{genre.Id}}">{{genre.Type}}</option>
+                </select>
+                <div class="help-block" ng-messages="movieForm.Genre.$error" ng-if="movieForm.Genre.$touched">
+                    <p ng-message="required">Genre is required.</p>
+                </div>
+            </div>
+        </fieldset>
+        <button class="btn btn-default" type="submit" ng-disabled="movieForm.Released.$invalid || movieForm.Title.$invalid || movieForm.Genre.$invalid">Save</button>
+    </form>
+    <!--input new movie form-->
+
+    <hr />
+
+    <!--search bar-->
+    <form>
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon"><i class="glyphicon glyphicon-search"></i></div>
+                <input type="text" class="form-control" placeholder="Search" ng-model="search">
+            </div>
+        </div>
+    </form>
+    <!--search bar-->
+
+    <!--results grid-->
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <td class="col-sm-6">
+                    <button ng-click="sortType = 'Title'; sortReverse = !sortReverse" class="btn btn-default btn-xs">
+                        Title
+                        <span ng-show="sortType == 'Title' && !sortReverse" class="glyphicon glyphicon-triangle-bottom"></span>
+                        <span ng-show="sortType == 'Title' && sortReverse" class="glyphicon glyphicon-triangle-top"></span>
+                    </button>
+                </td>
+                <td class="col-sm-3">
+                    <button ng-click="sortType = 'Genre.Type'; sortReverse = !sortReverse" class="btn btn-default btn-xs">
+                        Genre
+                        <span ng-show="sortType == 'Genre.Type' && !sortReverse" class="glyphicon glyphicon-triangle-bottom"></span>
+                        <span ng-show="sortType == 'Genre.Type' && sortReverse" class="glyphicon glyphicon-triangle-top"></span>
+                    </button>
+                </td>
+                <td class="col-sm-3">
+                    <button ng-click="sortType = 'Released'; sortReverse = !sortReverse" class="btn btn-default btn-xs">
+                        Released
+                        <span ng-show="sortType == 'Released' && !sortReverse" class="glyphicon glyphicon-triangle-bottom"></span>
+                        <span ng-show="sortType == 'Released' && sortReverse" class="glyphicon glyphicon-triangle-top"></span>
+                    </button>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="row in movies | orderBy:sortType:sortReverse | filter:search">
+                <td>{{ row.Title }}</td>
+                <td>{{ row.Genre.Type }}</td>
+                <td>{{ row.Released | date: 'dd/MM/yyyy' }}</td>
+            </tr>
+        </tbody>
+    </table>    
+    <!--results grid-->
+</div>
