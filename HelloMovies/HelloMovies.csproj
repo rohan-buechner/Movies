@@ -240,6 +240,8 @@
     <Content Include="App\filters.js" />
     <Content Include="App\MovieCatalogue\MovieCatalogueCtrl.js" />
     <Content Include="App\MovieCatalogue\MovieCatalogueView.html" />
+    <Content Include="App\SomeOtherScreen\SomeOtherScreenCtrl.js" />
+    <Content Include="App\SomeOtherScreen\SomeOtherScreenView.html" />
     <Content Include="App_Data\MoviesDbContext-20160723145847.mdf" />
     <Content Include="App_Data\MoviesDbContext-20160723145847_log.ldf">
       <DependentUpon>MoviesDbContext-20160723145847.mdf</DependentUpon>

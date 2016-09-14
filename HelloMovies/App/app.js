@@ -4,6 +4,7 @@
     .config(function ($routeProvider) {
         $routeProvider
             .when('/', { controller: "MovieCatalogueCtrl", templateUrl: '/App/MovieCatalogue/MovieCatalogueView.html' })
+            .when('/SomeOtherScreenCtrl', { controller: "SomeOtherScreenCtrl", templateUrl: '/App/SomeOtherScreen/SomeOtherScreenView.html' })
             .otherwise({ redirectTo: '/' });
     })
 
