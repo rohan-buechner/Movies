@@ -1,5 +1,7 @@
 # Hello World Movies
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/244456c7ca5b449eb9396a3db933cf07)](https://www.codacy.com/app/rohan.buchner/Movies?utm_source=github.com&utm_medium=referral&utm_content=rohan-buchner/Movies&utm_campaign=badger)
+
 **Technology Used**
 
 Serverside:
